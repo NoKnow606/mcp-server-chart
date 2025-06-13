@@ -14,9 +14,10 @@ export async function generateChartUrl(
   options: Record<string, any>,
 ): Promise<string> {
   console.error("Generating Chart", type);
+  console.error("Generating Chart", type);
   const url = "https://antv-studio.alipay.com/api/gpt-vis";
 
-  console.log("generateChartUrl", url);
+  console.error("generateChartUrl", url);
 
   const response = await axios.post(
     url,
@@ -33,7 +34,7 @@ export async function generateChartUrl(
   );
   const { success, errorMessage, resultObj } = response.data;
 
-  console.log("Response Data", JSON.stringify(response.data));
+  console.error("Response Data", JSON.stringify(response.data));
   if (!success) {
     throw new Error(errorMessage);
   }
