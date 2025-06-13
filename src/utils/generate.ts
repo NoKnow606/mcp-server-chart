@@ -14,7 +14,7 @@ export async function generateChartUrl(
   options: Record<string, any>,
 ): Promise<string> {
   console.error("Generating Chart", type);
-  const url = getVisRequestServer();
+  const url = "https://antv-studio.alipay.com/api/gpt-vis";
 
   console.log("generateChartUrl", url);
 
