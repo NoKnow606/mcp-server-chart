@@ -13,6 +13,7 @@ export async function generateChartUrl(
   // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   options: Record<string, any>,
 ): Promise<string> {
+  console.error("Generating Chart", type);
   const url = getVisRequestServer();
 
   console.log("generateChartUrl", url);

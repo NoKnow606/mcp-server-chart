@@ -51,10 +51,12 @@ export async function callTool(tool: string, args: object = {}) {
     // Select the appropriate schema based on the chart type.
     const schema = Charts[chartType].schema;
 
+    console.log('SCHEMA', JSON.stringify(schema));
 
     if (schema) {
       // Use safeParse instead of parse and try-catch.
       const result = z.object(schema).safeParse(args);
+      console.error("RESULT", result);
       if (!result.success) {
         throw new McpError(
           ErrorCode.InvalidParams,
