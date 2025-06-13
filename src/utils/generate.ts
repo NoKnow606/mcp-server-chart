@@ -15,6 +15,8 @@ export async function generateChartUrl(
 ): Promise<string> {
   const url = getVisRequestServer();
 
+  console.log("generateChartUrl", url);
+
   const response = await axios.post(
     url,
     {
@@ -30,6 +32,7 @@ export async function generateChartUrl(
   );
   const { success, errorMessage, resultObj } = response.data;
 
+  console.log("Response Data", JSON.stringify(response.data));
   if (!success) {
     throw new Error(errorMessage);
   }

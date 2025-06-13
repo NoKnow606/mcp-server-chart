@@ -39,6 +39,9 @@ const CHART_TYPE_MAP = {
 export async function callTool(tool: string, args: object = {}) {
   const chartType = CHART_TYPE_MAP[tool as keyof typeof CHART_TYPE_MAP];
 
+  console.error("CHART_TYPE_MAP", chartType);
+  console.error("TOOL name", tool);
+
   if (!chartType) {
     throw new McpError(ErrorCode.MethodNotFound, `Unknown tool: ${tool}.`);
   }
@@ -47,6 +50,7 @@ export async function callTool(tool: string, args: object = {}) {
     // Validate input using Zod before sending to API.
     // Select the appropriate schema based on the chart type.
     const schema = Charts[chartType].schema;
+
 
     if (schema) {
       // Use safeParse instead of parse and try-catch.
